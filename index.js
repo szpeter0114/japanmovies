@@ -1,3 +1,6 @@
+const template = document.getElementById('template');
+const movies = document.getElementById('movies');
+
 const options = {
 	method: 'GET',
 	headers: {
@@ -6,25 +9,27 @@ const options = {
 	}
 };
 
-fetch('https://imdb8.p.rapidapi.com/auto-complete?q=japan', options)
+const fetcheddata = fetch('https://imdb8.p.rapidapi.com/auto-complete?q=starwars', options)
 	.then(response => response.json())
 	.then(data => {
         const list = data.d;
-        
         list.map((item) => {
             const title = item.l;
-            const cover = item.i.imageUrl;
-            const year = item.y;
+            const year = item.y;            
+            const cover = new Image();
+            cover.src = item.i.imageUrl;
+    
+            const films = [
+                {title: title, cover: cover, year: year},
+            ];
 
-            const film = document.querySelector('#movies');
-            film.innerHTML += 
-            `<div class="filmcontainer">
-            <img src="${cover}">
-            <div class='data'>
-            <h1>${title}</h1>
-            <p class="${year ? 'show' : 'noshow'}">${year}</p>
-            </div>
-            </div>`
+            films.forEach(film => {
+                const clone = template.content.cloneNode(true);
+                clone.querySelector('.title').textContent = film.title;
+                clone.querySelector('.year').textContent = film.year;
+                clone.querySelector('.image').src = film.cover.src;
+                movies.appendChild(clone);
+            })
         })
     })
 	.catch(err => console.error(err));
