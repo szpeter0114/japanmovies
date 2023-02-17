@@ -13,6 +13,32 @@ body {
 
 img {
     max-width: 240px;
+    min-height: 370px;
+    position: relative;
+
+}
+
+
+.item {
+    margin: 2rem 1.5rem;
+    border: solid 4px rgb(239, 234, 234);
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    filter: grayscale(100%);
+}
+
+.item:hover {
+    transform: scale(1.15);
+    transition: 500ms;
+    border: rgb(130, 115, 115) solid 4px;
+    box-shadow: rgba(248, 248, 117, 0.487) 5px 10px 15px 8px;
+    filter: grayscale(0%);
 }
 
 #movies {
@@ -21,38 +47,17 @@ img {
     flex-wrap: wrap;
 }
 
-.filmcontainer {
-    position: relative;
-    margin: 2rem 1.5rem;
-    border: solid 4px rgb(239, 234, 234);
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    filter: grayscale(100%);
-}
-
-.filmcontainer:hover {
-    transform: scale(1.15);
-    transition: 500ms;
-    border: rgb(130, 115, 115) solid 4px;
-    box-shadow: rgba(248, 248, 117, 0.487) 5px 10px 15px 8px;
-    filter: grayscale(0%);
-}
-
 .data {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0.5rem;
+    align-items: center;
+    padding: 1.5rem;
     background-color: beige;
-    position: absolute;
-    flex-wrap: nowrap;
-    left: 0;
-    bottom: 0;
-    right: 0;
     max-height: 2rem;
+    width: 240px;
+    position: absolute;
+    bottom: 0;
 }
 
 h1 {
@@ -61,12 +66,4 @@ h1 {
 
 p {
     font-size: xx-small;
-}
-
-.noshow {
-    display: none;
-}
-
-.show {
-    display: inline;
 }
