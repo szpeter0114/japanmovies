@@ -8,7 +8,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="movies"></div>
+    <template id="template">
+            <div class="item">
+                <img src="" alt="cover" class="image">
+                <div class="data">
+                    <h1 class="title"></h1>
+                    <p class="year"></p>
+                </div>
+            </div>
+    </template>
+    
+        <div id="movies" class="filmcontainer"></div>
+
     <script src="index.js"></script>
 </body>
 </html>
